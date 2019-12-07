@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Chat
+      </h1>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input class="input" type="text" placeholder="input" id="channel" value="default">
+        </p>
+        <p class="control">
+          <a class="button is-primary" onclick="changeChannel();">
+            connect
+          </a>
+        </p>
+      </div>
+      <div class="box chat-box" id="messages">
+      </div>
+      <div class="field is-horizontal">
+        <div class="is-normal">
+          <div class="control">
+            <input class="input is-primary" id="name" type="text" placeholder="Name" value="TESTER">
+          </div>
+        </div>
+        <div class="field-body">
+          <div class="field is-grouped">
+            <p class="control is-expanded">
+              <input class="input" type="text" placeholder="input" id="input">
+            </p>
+            <p class="control">
+              <a class="button is-info" onclick="enterMessage();">
+                Send
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p id="connected" class="buttons">
+    </p>
+  </section>
+</body>
+
+<template type="template/text" id="template">
+  <div class="box is-primary">
+    <article class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>{{ name }}</strong> <small>@socket</small>
+            <br>
+            {{ message }}
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</template>
+
+<style>
+  .chat-box {
+    height: 500px;
+    overflow: scroll;
+  }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./form.js"></script>
+<script src="./socket.js"></script>
+
+</html>

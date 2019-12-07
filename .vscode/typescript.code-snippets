@@ -1,0 +1,28 @@
+{
+	"ppController": {
+		"prefix": "ppController",
+		"body": [
+			"export async function ${1:}(req: Request, res: Response, next: NextFunction) {",
+			"  ${2:}",
+			"",
+			"  res.json({",
+			"    result: true,",
+			"  });"
+			"}",
+			""
+		],
+		"description": "express controller"
+	},
+	"ppTry": {
+		"prefix": "ppTry",
+		"body": [
+			"try {",
+			"  await ${1:}",
+			"} catch (e) {"
+			"  next(new HttpException(500, e.toString()));",
+			"  return;",
+			"}"
+		],
+		"description": "http exception"
+	}
+}

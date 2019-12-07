@@ -1,0 +1,12 @@
+# package directories
+node_modules
+jspm_packages
+nohup.out
+package-lock.json
+
+.serverless
+.build
+build
+dist
+yarn-error.log
+.env
